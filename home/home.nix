@@ -4,6 +4,10 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
+  imports = [
+    ./tmux.nix
+  ];
+
   programs.git = {
     enable = true;
 
