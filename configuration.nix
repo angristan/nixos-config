@@ -69,7 +69,7 @@
   hardware.enableRedistributableFirmware = true;
 
   # Enable OpenGL drivers
-  hardware.opengl.enable
+  hardware.opengl.enable = true;
   hardware.opengl.extraPackages = with pkgs; [
     vaapiIntel
     vaapiVdpau
