@@ -18,13 +18,13 @@ This posts helped me install NixOS on my XPS:
 
 I'm using NixOS unstable. To replace to nixos-channel with unstable:
 
-```sh
+```
 # nix-channel --add https://nixos.org/channels/nixos-unstable nixos
 ```
 
 If you didn't use unstable during the install, you will need to update and rebuild:
 
-```sh
+```
 # nix-channel --update nixos
 # nixos-rebuild switch
 ```
@@ -32,6 +32,21 @@ If you didn't use unstable during the install, you will need to update and rebui
 ## Configuration inspiration
 
 I spent a lot of time reading other user's configurations, mainly from the wiki's [Configuration Collection](https://nixos.wiki/wiki/Configuration_Collection). This is where I learned the most!
+
+## Usage
+
+```
+$ git clone https://github.com/angristan/nixos-config.git ~/config
+$ sudo ln -s ~/config /etc/nixos
+$ sudo nixos-rebuild switch
+```
+
+For Home Manager:
+
+```
+$ ln -s ~/config/home ~/.config/nixpkgs
+$ home-manager switch
+```
 
 ## To Do
 
