@@ -31,6 +31,8 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.timeout = 2;
   #systemd.enableEmergencyMode = false;  # Start up no matter what, if at all possible.
+  # Bigger console font
+  boot.loader.systemd-boot.consoleMode = "2";
 
   # Plymouth boot splash screen
   boot.plymouth.enable = true;
