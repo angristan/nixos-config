@@ -339,15 +339,17 @@
     enableDefaultFonts = true;
     enableFontDir = true;
     enableGhostscriptFonts = true;
+    fontconfig.ultimate.enable = true;
     fonts = with pkgs; [
-      inconsolata
-      fira-code
-      fira-mono
-      corefonts  # Microsoft free fonts.
-      inconsolata  # Monospaced.
-      ubuntu_font_family  # Ubuntu fonts.
-      unifont # some international languages.
-      ipafont # Japanese.
+      noto-fonts
+      noto-fonts-cjk # Chinese, Japanese, Korean
+      noto-fonts-emoji
+      noto-fonts-extra
+      fira-code # Monospace font with programming ligatures
+      hack-font # A typeface designed for source code
+      fira-mono # Mozilla's typeface for Firefox OS
+      corefonts  # Microsoft free fonts
+      ubuntu_font_family
       roboto # Android
     ];
   };
