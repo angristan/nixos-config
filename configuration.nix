@@ -63,7 +63,7 @@
   # Enable microcode updates for Intel CPU
   hardware.cpu.intel.updateMicrocode = true;
   # Enable Kernel same-page merging
-  #hardware.enableKSM = true;
+  hardware.enableKSM = true;
 
   # Enable all the firmware
   hardware.enableAllFirmware = true;
