@@ -143,7 +143,7 @@
     speedtest-cli strace awscli gitAndTools.diff-so-fancy freerdp
     google-cloud-sdk vault exa lazygit bat libsForQt5.vlc jq
     gparted tree rsync openssl bind docker-compose nload
-    sysbench geekbench killall
+    sysbench geekbench killall gnumake
     # Nix tools
     nix-du #https://github.com/symphorien/nix-du
     # Dev
