@@ -149,6 +149,7 @@
     # Dev
     vscode nodejs-11_x ruby_2_6 php73 python27Full python37Full
     jetbrains.webstorm shellcheck git
+    solargraph # ruby tools
     # Else
     google-chrome spotify slack filezilla firefox ansible
     terraform tdesktop libreoffice gimp
