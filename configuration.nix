@@ -153,6 +153,8 @@
     # Else
     google-chrome spotify slack filezilla firefox ansible
     terraform tdesktop libreoffice gimp
+    # Media
+    plex-media-player
     # VM
     open-vm-tools
     # Hardware
