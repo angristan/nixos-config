@@ -211,7 +211,7 @@
   # Enable powertop auto tuning on startup.
   powerManagement.powertop.enable = true;
   # IDK if TLP is useful/conflicts with powerManagement
-  #services.tlp.enable = true;
+  services.tlp.enable = true;
 
   # Install and configure Docker
   virtualisation.docker = {
