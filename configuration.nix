@@ -293,7 +293,7 @@
   services.xserver.desktopManager.gnome3.enable = true;
   services.xserver.displayManager.gdm.enable = true;
   # GDM uses wayland by default, but I don't want to
-  services.xserver.displayManager.gdm.wayland = false;
+  services.xserver.displayManager.gdm.wayland = true;
 
   # Remove these packages that come by default with GNOME
   environment.gnome3.excludePackages = with pkgs.gnome3; [
