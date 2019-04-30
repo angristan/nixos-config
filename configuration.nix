@@ -192,6 +192,7 @@
     openvpn
     networkmanager-openvpn
     ntfs3g
+    pavucontrol # PulseAudio Volume Control, GUI
     # Nix tools
     nix-du #https://github.com/symphorien/nix-du
     # Dev
