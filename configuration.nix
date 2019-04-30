@@ -30,7 +30,7 @@
   boot.initrd.preLVMCommands = ''
     echo '--- OWNERSHIP NOTICE ---'
     echo 'This device is property of Stanislas Lange'
-    echo 'If lost please contact at stanislas.lange at pm.me'
+    echo 'If lost please contact stanislas.lange at pm.me'
     echo '--- OWNERSHIP NOTICE ---'
   '';
 
