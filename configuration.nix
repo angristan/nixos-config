@@ -147,20 +147,85 @@
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
     # Utils
-    wget neofetch micro ncdu gparted ntfs3g ripgrep file htop
-    speedtest-cli strace awscli gitAndTools.diff-so-fancy freerdp
-    google-cloud-sdk vault exa lazygit bat libsForQt5.vlc jq
-    gparted tree rsync openssl bind docker-compose nload
-    sysbench geekbench killall gnumake
+    wget
+    neofetch
+    micro
+    ncdu
+    gparted
+    ntfs3g
+    ripgrep
+    file
+    htop
+    speedtest-cli
+    strace
+    awscli
+    gitAndTools.diff-so-fancy
+    freerdp
+    google-cloud-sdk
+    vault
+    exa
+    lazygit
+    bat
+    libsForQt5.vlc
+    gparted
+    tree
+    rsync
+    openssl
+    docker-compose
+    nload
+    sysbench
+    geekbench
+    psmisc  # provides: fuser, killall, pstree, peekfd
+    ethtool
+    lsof
+    tokei  # fast cloc alternative in rust
+    dos2unix  # Convert between DOS and Unix line endings
+    socat
+    rsync
+    ipcalc
+    whois
+    dnsutils
+    iperf
+    netcat
+    nmap
+    speedtest-cli
+    openvpn
+    networkmanager-openvpn
     # Nix tools
     nix-du #https://github.com/symphorien/nix-du
     # Dev
-    vscode nodejs-11_x ruby_2_6 php73 python27Full python37Full
-    jetbrains.webstorm shellcheck git
+    vscode
+    nodejs-11_x
+    ruby_2_6
+    php73
+    python27Full
+    python37Full
+    jetbrains.webstorm
+    shellcheck
+    git
     solargraph # ruby tools
+    # Compiler and debugger
+    gcc gdb
+    # Build tools
+    automake
+    gnumake
+    # Formatter
+    indent
+    # Linter
+    splint
+    # as (assembler) and ld, ld.bfd, ld.gold (linkers)
+    binutils
     # Else
-    google-chrome spotify slack filezilla firefox ansible
-    terraform tdesktop libreoffice gimp
+    google-chrome
+    spotify
+    slack
+    filezilla
+    firefox
+    ansible
+    terraform
+    tdesktop
+    libreoffice
+    gimp
     # Media
     plex-media-player
     # VM
@@ -171,7 +236,16 @@
     pciutils
     dmidecode
     lm_sensors
+    hdparm
     smartmontools
+
+    # compression
+    pixz pigz pbzip2 # parallel (de-)compression
+    unzip
+    # Data formatters, accessors
+    libxml2  # xmllint
+    jq  # json parser
+    yq  # same for yaml
 
     # https://www.mpscholten.de/nixos/2016/04/11/setting-up-vim-on-nixos.html
     (
