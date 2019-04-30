@@ -191,6 +191,7 @@
     speedtest-cli
     openvpn
     networkmanager-openvpn
+    ntfs3g
     # Nix tools
     nix-du #https://github.com/symphorien/nix-du
     # Dev
