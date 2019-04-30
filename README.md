@@ -4,7 +4,11 @@ This is the NixOS config for my work laptop, a XPS 13 9360.
 
 It uses systemd-boot, Xorg, GDM, GNOME and LVM on LUKS.
 
-## Install
+## Configuration inspiration
+
+I spent a lot of time reading other user's configurations, mainly from the wiki's [Configuration Collection](https://nixos.wiki/wiki/Configuration_Collection). This is where I learned the most!
+
+## Installation
 
 This posts helped me install NixOS on my XPS:
 
@@ -29,9 +33,15 @@ If you didn't use unstable during the install, you will need to update and rebui
 # nixos-rebuild switch
 ```
 
-## Configuration inspiration
+### Add home-manager system module
 
-I spent a lot of time reading other user's configurations, mainly from the wiki's [Configuration Collection](https://nixos.wiki/wiki/Configuration_Collection). This is where I learned the most!
+cf. https://rycee.gitlab.io/home-manager/index.html#sec-install-nixos-module
+
+```
+# nix-channel --add https://github.com/rycee/home-manager/archive/master.tar.gz home-manager
+# nix-channel --update
+```
+
 
 ## Usage
 
@@ -40,15 +50,3 @@ $ git clone https://github.com/angristan/nixos-config.git ~/config
 $ sudo ln -s ~/config /etc/nixos
 $ sudo nixos-rebuild switch
 ```
-
-For Home Manager:
-
-```
-$ ln -s ~/config/home ~/.config/nixpkgs
-$ home-manager switch
-```
-
-## To Do
-
-- Split into modules
-- Use [Home Manager](https://github.com/rycee/home-manager)

@@ -13,6 +13,7 @@
       # This is great for quick and easy config
       # But I have backported this into my own config
       #<nixos-hardware/dell/xps/13-9360>
+      <home-manager/nixos>
     ];
 
   # The encrypted disk that should be opened before the root filesystem is mounted
@@ -331,6 +332,59 @@
     # It is possible to install packages on a per-user basis.
     # I don't know why I would do that so they are installed globally for now.
     #packages = [];
+  };
+
+  home-manager.users.stanislas = { pkgs, ... }: {
+    # home.packages = [ pkgs.atool pkgs.httpie ];
+    # programs.bash.enable = true;
+    programs.git = {
+      enable = true;
+
+      userName = "Stanislas Lange";
+      userEmail = "stanislas.lange@fr.clara.net";
+
+      aliases = {
+        plog = "log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all";
+      };
+
+      extraConfig = {
+        core = {
+          pager = "diff-so-fancy | less --tabs=4 -RFX";
+        };
+        color = {
+          ui = "true";
+        };
+        "color \"diff-highlight\"" = {
+          oldnormal = "red bold";
+          oldHighlight = "red bold 52";
+          newNormal = "green bold";
+          newHighlight = "green bold 22";
+        };
+        "color \"diff\"" = {
+          meta = "yellow";
+          frag = "magenta bold";
+          commit = "yellow bold";
+          old = "red bold";
+          new = "green bold";
+          whitespace = "red reverse";
+        };
+      };
+
+      ignores = [
+        "*.swp"
+        "*~"
+        ".#*"
+        ".DS_Store"
+        ".direnv"
+        ".vagrant"
+      ];
+    };
+
+    # home.file."" = {
+    #   text = ''
+
+    #   '';
+    };
   };
 
   environment.variables.EDITOR = "vim";
