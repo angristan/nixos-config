@@ -432,6 +432,7 @@
         plog = "log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all";
       };
 
+      # BEGING diff-so-fancy config
       extraConfig = {
         core = {
           pager = "diff-so-fancy | less --tabs=4 -RFX";
@@ -454,6 +455,7 @@
           whitespace = "red reverse";
         };
       };
+      # END diff-so-fancy config
 
       ignores = [
         "*.swp"
@@ -521,6 +523,12 @@
           identitiesOnly = true;
         };
       };
+    };
+
+    programs.htop = {
+      enable = true;
+      # Detailed CPU time (System/IO-Wait/Hard-IRQ/Soft-IRQ/Steal/Guest).
+      detailedCpuTime = true;
     };
 
     # home.file."" = {
