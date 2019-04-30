@@ -39,6 +39,8 @@
   boot.loader.efi.canTouchEfiVariables = true;
   # Bigger console font
   boot.loader.systemd-boot.consoleMode = "2";
+  # Prohibits gaining root access by passing init=/bin/sh as a kernel parameter
+  boot.loader.systemd-boot.editor = false;
 
   # Plymouth boot splash screen
   boot.plymouth.enable = true;
