@@ -324,6 +324,9 @@
   # Disable mutable users.
   #users.mutableUsers = false;
 
+  # Use fish by default for all users
+  users.defaultUserShell = pkgs.fish;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.stanislas = {
     description = "Stanislas";
