@@ -465,6 +465,64 @@
       ];
     };
 
+    programs.ssh = {
+      enable = true;
+
+      matchBlocks = {
+        # Personal
+        kokoro = {
+          hostname = "kokoro.angristan.xyz";
+          user = "root";
+          port = 3200;
+          identityFile = "~/.ssh/xps-sla";
+        };
+        mina = {
+          hostname = "mina.angristan.xyz";
+          user = "root";
+          port = 3200;
+          identityFile = "~/.ssh/xps-sla";
+        };
+        mitsuha = {
+          hostname = "mitsuha.angristan.xyz";
+          user = "root";
+          port = 3200;
+          identityFile = "~/.ssh/xps-sla";
+        };
+        "github.com" = {
+          user = "git";
+          identityFile = "~/.ssh/xps-sla";
+          identitiesOnly = true;
+        };
+        "gitlab.com" = {
+          user = "git";
+          identityFile = "~/.ssh/xps-sla";
+          identitiesOnly = true;
+        };
+
+        # Work
+        pa1 = {
+          hostname = "bastion-pa1-01";
+          user = "slange";
+          identityFile = "~/.ssh/xps-sla-oxa";
+        };
+        pa2 = {
+          hostname = "bastion-pa2-01";
+          user = "slange";
+          identityFile = "~/.ssh/xps-sla-oxa";
+        };
+        pa3 = {
+          hostname = "bastion-pa3-01";
+          user = "slange";
+          identityFile = "~/.ssh/xps-sla-oxa";
+        };
+        "oxalide.factory.git-01.adm" = {
+          user = "slange";
+          identityFile = "~/.ssh/xps-sla-oxa";
+          identitiesOnly = true;
+        };
+      };
+    };
+
     # home.file."" = {
     #   text = ''
 
