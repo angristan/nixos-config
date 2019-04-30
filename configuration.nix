@@ -17,15 +17,22 @@
     ];
 
   # The encrypted disk that should be opened before the root filesystem is mounted
-  boot.initrd.luks.devices =
-    [
-      {
-        name = "root";
-        device = "/dev/nvme0n1p2";
-        # luksOpen will be attempted before LVM scan
-        preLVM = true;
-      }
-    ];
+  boot.initrd.luks.devices = [
+    {
+      name = "root";
+      device = "/dev/nvme0n1p2";
+      # luksOpen will be attempted before LVM scan
+      preLVM = true;
+    }
+  ];
+
+  # Display ownership notice before LUKS prompt
+  boot.initrd.preLVMCommands = ''
+    echo '--- OWNERSHIP NOTICE ---'
+    echo 'This device is property of Stanislas Lange'
+    echo 'If lost please contact at stanislas.lange at pm.me'
+    echo '--- OWNERSHIP NOTICE ---'
+  '';
 
   # systemd-boot
   boot.loader.systemd-boot.enable = true;
