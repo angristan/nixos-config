@@ -121,7 +121,7 @@
   };
 
   # The list of nameservers. It can be left empty if it is auto-detected through DHCP.
-  #networking.nameservers = [ "1.0.0.1", "1.1.1.1" ];
+  #networking.nameservers = [ "1.0.0.1" "1.1.1.1" ];
 
   # DNSCrypt
   #services.dnscrypt-proxy.enable = true;
@@ -193,6 +193,7 @@
     networkmanager-openvpn
     ntfs3g
     pavucontrol # PulseAudio Volume Control, GUI
+    hyper
     # Nix tools
     nix-du #https://github.com/symphorien/nix-du
     # Dev
@@ -203,6 +204,11 @@
     python27Full
     python37Full
     jetbrains.webstorm
+    jetbrains.clion
+    jetbrains.idea-ultimate
+    jetbrains.phpstorm
+    jetbrains.pycharm-professional
+    jetbrains.ruby-mine
     shellcheck
     git
     solargraph # ruby tools
@@ -219,6 +225,7 @@
     binutils
     # Else
     google-chrome
+    chromium
     spotify
     slack
     filezilla
