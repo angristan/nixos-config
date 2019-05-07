@@ -120,6 +120,8 @@
     logRefusedConnections = true;
   };
 
+  # networking.networkmanager.dns = "systemd-resolved";
+
   # The list of nameservers. It can be left empty if it is auto-detected through DHCP.
   #networking.nameservers = [ "1.0.0.1" "1.1.1.1" ];
 
@@ -763,5 +765,15 @@
       # Enable mouse mode
       set -g mouse on
     '';
+  };
+
+  services.restic.backups.bastion_pa3 = {
+    passwordFile = "/etc/nixos/secrets/restic-password";
+    paths = [ "/etc" ];
+    user = "stanislas";
+    repository = "sftp:pa3:restic";
+    timerConfig = {
+      OnCalendar = "12:30";
+    };
   };
 }
