@@ -181,7 +181,6 @@
     tokei  # fast cloc alternative in rust
     dos2unix  # Convert between DOS and Unix line endings
     socat
-    rsync
     ipcalc
     whois
     dnsutils
@@ -197,6 +196,7 @@
     # Nix tools
     nix-du #https://github.com/symphorien/nix-du
     # Dev
+    bundix
     vscode
     nodejs-11_x
     ruby_2_6
@@ -212,11 +212,13 @@
     shellcheck
     git
     solargraph # ruby tools
+    rubocop
     # Compiler and debugger
     gcc gdb
     # Build tools
     automake
     gnumake
+    pkg-config
     # Formatter
     indent
     # Linter
