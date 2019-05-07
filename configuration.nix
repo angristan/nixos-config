@@ -308,6 +308,7 @@
   powerManagement.powertop.enable = true;
   # IDK if TLP is useful/conflicts with powerManagement
   services.tlp.enable = true;
+  services.tlp.extraConfig = "USB_AUTOSUSPEND=0";
 
   # Install and configure Docker
   virtualisation.docker = {
