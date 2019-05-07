@@ -575,10 +575,10 @@
 
   nix = {
     # Automatically run the garbage collector
-    gc.automatic = true;
+    gc.automatic = false;
     gc.dates = "12:45";
     # Automatically run the nix store optimiser
-    optimise.automatic = true;
+    optimise.automatic = false;
     optimise.dates = [ "12:55" ];
     # Nix automatically detects files in the store that have identical contents, and replaces them with hard links to a single copy.
     autoOptimiseStore = true;
