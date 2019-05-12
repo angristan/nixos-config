@@ -6,25 +6,22 @@
 { config, pkgs, lib, ... }:
 
 {
-  imports =
-    [
-      # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      # This is great for quick and easy config
-      # But I have backported this into my own config
-      #<nixos-hardware/dell/xps/13-9360>
-      <home-manager/nixos>
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    # This is great for quick and easy config
+    # But I have backported this into my own config
+    #<nixos-hardware/dell/xps/13-9360>
+    <home-manager/nixos>
+  ];
 
   # The encrypted disk that should be opened before the root filesystem is mounted
-  boot.initrd.luks.devices = [
-    {
-      name = "root";
-      device = "/dev/nvme0n1p2";
-      # luksOpen will be attempted before LVM scan
-      preLVM = true;
-    }
-  ];
+  boot.initrd.luks.devices = [{
+    name = "root";
+    device = "/dev/nvme0n1p2";
+    # luksOpen will be attempted before LVM scan
+    preLVM = true;
+  }];
 
   # Display ownership notice before LUKS prompt
   boot.initrd.preLVMCommands = ''
@@ -49,18 +46,17 @@
   boot.cleanTmpDir = true;
 
   # https://wiki.archlinux.org/index.php/Kernel_mode_setting#Early_KMS_start
-  boot.initrd.kernelModules = [ "i915" ];
+  boot.initrd.kernelModules = ["i915"];
   # Enable framebuffer compression (FBC)
   # can reduce power consumption while reducing memory bandwidth needed for screen refreshes.
   # https://wiki.archlinux.org/index.php/intel_graphics#Framebuffer_compression_(enable_fbc)
-  boot.kernelParams = [ "i915.enable_fbc=1" ];
+  boot.kernelParams = ["i915.enable_fbc=1"];
 
   # Use Linux 5.0.x instead of 4.19.x
   # boot.kernelPackages will use linuxPackages by default, so no need to define it
-  nixpkgs.config.packageOverrides = in_pkgs :
-    {
-      linuxPackages = in_pkgs.linuxPackages_5_0;
-    };
+  nixpkgs.config.packageOverrides = in_pkgs: {
+    linuxPackages = in_pkgs.linuxPackages_5_0;
+  };
 
   # No access time and continuous TRIM for SSD
   fileSystems."/".options = [ "noatime" "discard" ];
@@ -177,11 +173,11 @@
     nload
     sysbench
     geekbench
-    psmisc  # provides: fuser, killall, pstree, peekfd
+    psmisc # provides: fuser, killall, pstree, peekfd
     ethtool
     lsof
-    tokei  # fast cloc alternative in rust
-    dos2unix  # Convert between DOS and Unix line endings
+    tokei # fast cloc alternative in rust
+    dos2unix # Convert between DOS and Unix line endings
     socat
     ipcalc
     whois
@@ -196,7 +192,7 @@
     pavucontrol # PulseAudio Volume Control, GUI
     hyper
     # Nix tools
-    nix-du #https://github.com/symphorien/nix-du
+    nix-du # https://github.com/symphorien/nix-du
     # Dev
     bundix
     vscode
@@ -216,7 +212,8 @@
     solargraph # ruby tools
     rubocop
     # Compiler and debugger
-    gcc gdb
+    gcc
+    gdb
     # Build tools
     automake
     gnumake
@@ -253,48 +250,48 @@
     smartmontools
 
     # compression
-    pixz pigz pbzip2 # parallel (de-)compression
+    pixz
+    pigz
+    pbzip2 # parallel (de-)compression
     unzip
     # Data formatters, accessors
-    libxml2  # xmllint
-    jq  # json parser
-    yq  # same for yaml
+    libxml2 # xmllint
+    jq # json parser
+    yq # same for yaml
 
     # https://www.mpscholten.de/nixos/2016/04/11/setting-up-vim-on-nixos.html
-    (
-      with import <nixpkgs> {};
+    (with import <nixpkgs> { };
 
-      vim_configurable.customize {
-        # Specifies the vim binary name
-        # E.g. set this to "my-vim" and you need to type "my-vim" to open this vim
-        # This allows to have multiple vim packages installed (e.g. with a different set of plugins)
-        name = "vim";
-        vimrcConfig.customRC = ''
-          syntax on
-          syntax enable
+    vim_configurable.customize {
+      # Specifies the vim binary name
+      # E.g. set this to "my-vim" and you need to type "my-vim" to open this vim
+      # This allows to have multiple vim packages installed (e.g. with a different set of plugins)
+      name = "vim";
+      vimrcConfig.customRC = ''
+        syntax on
+        syntax enable
 
-          set backupdir=/tmp      " save backup files (~) to /tmp
+        set backupdir=/tmp      " save backup files (~) to /tmp
 
-          set tabstop=4           " number of visual spaces per TAB
-          set softtabstop=4       " number of spaces in tab when editing
-          set expandtab           " tabs are spaces
-          filetype indent on      " load filetype-specific indent files
-          filetype on             " Enable file type detection
+        set tabstop=4           " number of visual spaces per TAB
+        set softtabstop=4       " number of spaces in tab when editing
+        set expandtab           " tabs are spaces
+        filetype indent on      " load filetype-specific indent files
+        filetype on             " Enable file type detection
 
-          set number              " show line numbers
-          set showcmd             " show command in bottom bar
-          set cursorline          " highlight current line
-          set wildmenu            " visual autocomplete for command menu
-          set lazyredraw          " redraw only when we need to.
-          set showmatch           " highlight matching [{()}]
+        set number              " show line numbers
+        set showcmd             " show command in bottom bar
+        set cursorline          " highlight current line
+        set wildmenu            " visual autocomplete for command menu
+        set lazyredraw          " redraw only when we need to.
+        set showmatch           " highlight matching [{()}]
 
-          set incsearch           " search as characters are entered
-          set hlsearch            " highlight matches
-          colorscheme pablo
-          set backspace=indent,eol,start " backspace over everything in insert mode
-        '';
-      }
-    )
+        set incsearch           " search as characters are entered
+        set hlsearch            " highlight matches
+        colorscheme pablo
+        set backspace=indent,eol,start " backspace over everything in insert mode
+      '';
+    })
   ];
 
   # Install + setcap
@@ -346,13 +343,13 @@
 
   # Monitoring
   services.netdata = {
-   enable = true;
-   config = {
-     global = {
-       "default port" = "19999";
-       "bind to" = "127.0.0.1";
-     };
-   };
+    enable = true;
+    config = {
+      global = {
+        "default port" = "19999";
+        "bind to" = "127.0.0.1";
+      };
+    };
   };
 
   # TODO: Restic backups
@@ -360,7 +357,6 @@
 
   # TODO OpenVPN
   # services.openvpn.servers
-
 
   # Enable Pulseaudio
   hardware.pulseaudio = {
@@ -425,7 +421,8 @@
     shell = pkgs.fish;
     extraGroups = [
       "wheel" # Enable ‘sudo’ for the user.
-      "docker" "lxd" # Allow access to the sockets without root
+      "docker"
+      "lxd" # Allow access to the sockets without root
     ];
     # It is possible to install packages on a per-user basis.
     # I don't know why I would do that so they are installed globally for now.
@@ -442,24 +439,21 @@
       userEmail = "stanislas.lange@fr.clara.net";
 
       aliases = {
-        plog = "log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all";
+        plog =
+          "log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all";
       };
 
       # BEGING diff-so-fancy config
       extraConfig = {
-        core = {
-          pager = "diff-so-fancy | less --tabs=4 -RFX";
-        };
-        color = {
-          ui = "true";
-        };
-        "color \"diff-highlight\"" = {
+        core = { pager = "diff-so-fancy | less --tabs=4 -RFX"; };
+        color = { ui = "true"; };
+        ''color "diff-highlight"'' = {
           oldnormal = "red bold";
           oldHighlight = "red bold 52";
           newNormal = "green bold";
           newHighlight = "green bold 22";
         };
-        "color \"diff\"" = {
+        ''color "diff"'' = {
           meta = "yellow";
           frag = "magenta bold";
           commit = "yellow bold";
@@ -470,14 +464,7 @@
       };
       # END diff-so-fancy config
 
-      ignores = [
-        "*.swp"
-        "*~"
-        ".#*"
-        ".DS_Store"
-        ".direnv"
-        ".vagrant"
-      ];
+      ignores = [ "*.swp" "*~" ".#*" ".DS_Store" ".direnv" ".vagrant" ];
     };
 
     programs.ssh = {
@@ -569,7 +556,7 @@
       fira-code # Monospace font with programming ligatures
       hack-font # A typeface designed for source code
       fira-mono # Mozilla's typeface for Firefox OS
-      corefonts  # Microsoft free fonts
+      corefonts # Microsoft free fonts
       ubuntu_font_family
       roboto # Android
     ];
@@ -581,7 +568,7 @@
     gc.dates = "12:45";
     # Automatically run the nix store optimiser
     optimise.automatic = false;
-    optimise.dates = [ "12:55" ];
+    optimise.dates = ["12:55"];
     # Nix automatically detects files in the store that have identical contents, and replaces them with hard links to a single copy.
     autoOptimiseStore = true;
     # maximum number of concurrent tasks during one build
@@ -604,7 +591,7 @@
   # This will run nixos-rebuild switch --upgrade periodically
   #system.autoUpgrade.enable = true;
 
-    # Use the fish shell.
+  # Use the fish shell.
   programs.fish = {
     enable = true;
 
@@ -769,11 +756,9 @@
 
   services.restic.backups.bastion_pa3 = {
     passwordFile = "/etc/nixos/secrets/restic-password";
-    paths = [ "/etc" ];
+    paths = ["/etc"];
     user = "stanislas";
     repository = "sftp:pa3:restic";
-    timerConfig = {
-      OnCalendar = "12:30";
-    };
+    timerConfig = { OnCalendar = "12:30"; };
   };
 }
