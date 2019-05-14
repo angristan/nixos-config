@@ -334,9 +334,9 @@
   # No snap yet: https://github.com/NixOS/nixpkgs/issues/30336
 
   # Enable ClamAV, an open source antivirus engine
-  services.clamav.daemon.enable = true;
+  #services.clamav.daemon.enable = true;
   # Enable ClamAV freshclam updater.
-  services.clamav.updater.enable = true;
+  #services.clamav.updater.enable = true;
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
