@@ -55,11 +55,11 @@
   # https://wiki.archlinux.org/index.php/intel_graphics#Framebuffer_compression_(enable_fbc)
   boot.kernelParams = [ "i915.enable_fbc=1" ];
 
-  # Use Linux 5.0.x instead of 4.19.x
+  # Use latest kernel
   # boot.kernelPackages will use linuxPackages by default, so no need to define it
   nixpkgs.config.packageOverrides = in_pkgs :
     {
-      linuxPackages = in_pkgs.linuxPackages_5_0;
+      linuxPackages = in_pkgs.linuxPackages_5_1;
     };
 
   # No access time and continuous TRIM for SSD
