@@ -41,6 +41,8 @@
   boot.loader.systemd-boot.consoleMode = "2";
   # Prohibits gaining root access by passing init=/bin/sh as a kernel parameter
   boot.loader.systemd-boot.editor = false;
+  # new!
+  #boot.loader.systemd-boot.memtest86.enable = true;
 
   # Plymouth boot splash screen
   boot.plymouth.enable = true;
@@ -120,14 +122,11 @@
     logRefusedConnections = true;
   };
 
-  # networking.networkmanager.dns = "systemd-resolved";
+  networking.search = ["oxalide.local"];
+  networking.nameservers = ["192.168.3.2" "89.185.39.94" "176.103.130.130" "1.0.0.1"];
 
   # The list of nameservers. It can be left empty if it is auto-detected through DHCP.
   #networking.nameservers = [ "1.0.0.1" "1.1.1.1" ];
-
-  # DNSCrypt
-  #services.dnscrypt-proxy.enable = true;
-  #networking.nameservers = ["127.0.0.1"];
 
   # Network usage statistics
   services.vnstat.enable = true;
@@ -194,10 +193,11 @@
     networkmanager-openvpn
     ntfs3g
     pavucontrol # PulseAudio Volume Control, GUI
-    hyper
+    #hyper
     # Nix tools
     nix-du #https://github.com/symphorien/nix-du
     # Dev
+    cmake
     bundix
     vscode
     nodejs-11_x
@@ -211,10 +211,14 @@
     jetbrains.phpstorm
     jetbrains.pycharm-professional
     jetbrains.ruby-mine
+    sublime3
     shellcheck
     git
     solargraph # ruby tools
     rubocop
+    gtk3
+    gnome3.glade
+    pkgconfig
     # Compiler and debugger
     gcc gdb
     # Build tools
@@ -236,6 +240,7 @@
     firefox
     ansible
     terraform
+    vagrant
     tdesktop
     libreoffice
     gimp
@@ -251,6 +256,8 @@
     lm_sensors
     hdparm
     smartmontools
+    p7zip
+    privoxy
 
     # compression
     pixz pigz pbzip2 # parallel (de-)compression
@@ -259,6 +266,8 @@
     libxml2  # xmllint
     jq  # json parser
     yq  # same for yaml
+    nvme-cli
+    _1password
 
     # https://www.mpscholten.de/nixos/2016/04/11/setting-up-vim-on-nixos.html
     (
@@ -309,7 +318,7 @@
   # Enable powertop auto tuning on startup.
   powerManagement.powertop.enable = true;
   # IDK if TLP is useful/conflicts with powerManagement
-  services.tlp.enable = true;
+  services.tlp.enable = false;
   services.tlp.extraConfig = "USB_AUTOSUSPEND=0";
 
   # Install and configure Docker
@@ -324,7 +333,7 @@
   # Install LXD
   virtualisation.lxd.enable = true;
   # Install VB
-  #services.virtualbox.enable = true;
+  virtualisation.virtualbox.host.enable = true;
 
   # Periodically update the database of files used by the locate command
   services.locate.enable = true;
@@ -373,7 +382,7 @@
 
   # Bluetooth
   # https://nixos.wiki/wiki/Bluetooth
-  hardware.bluetooth.enable = true;
+  hardware.bluetooth.enable = false;
   # Don't power up the default Bluetooth controller on boot
   hardware.bluetooth.powerOnBoot = false;
 
@@ -510,7 +519,7 @@
         };
         "gitlab.com" = {
           user = "git";
-          identityFile = "~/.ssh/xps-sla";
+          identityFile = "~/.ssh/xps-sla-oxa";
           identitiesOnly = true;
         };
 
@@ -616,7 +625,7 @@
       lgit = "git add -A; and git commit; and git push";
       lgitf = "git add -A; and git commit; and git pull; and git push";
       cat = "bat -p";
-      ls = "exa -gF --group-directories-first";
+      ls = "exa -gF --group-directories-first --git";
       ll = "ls -l";
       l = "ll -a";
       grep = "rg";
