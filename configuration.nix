@@ -122,8 +122,8 @@
     logRefusedConnections = true;
   };
 
-  networking.search = ["oxalide.local"];
-  networking.nameservers = ["192.168.3.2" "89.185.39.94" "176.103.130.130" "1.0.0.1"];
+  #networking.search = ["oxalide.local"];
+  #networking.nameservers = ["192.168.3.2" "89.185.39.94" "176.103.130.130" "1.0.0.1"];
 
   # The list of nameservers. It can be left empty if it is auto-detected through DHCP.
   #networking.nameservers = [ "1.0.0.1" "1.1.1.1" ];
