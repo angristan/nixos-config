@@ -638,6 +638,8 @@
     shellInit = ''
       # Remove welcome message
       set fish_greeting
+
+      export VAULT_ADDR=https://vault.oxalide.net
     '';
 
     promptInit = ''
