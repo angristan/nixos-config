@@ -203,6 +203,7 @@
     nodejs-11_x
     ruby_2_6
     php73
+  	php73Packages.composer
     python27Full
     python37Full
     jetbrains.webstorm
@@ -239,7 +240,7 @@
     filezilla
     firefox
     ansible
-    terraform
+    terraform_0_12
     vagrant
     tdesktop
     libreoffice
@@ -268,6 +269,8 @@
     yq  # same for yaml
     nvme-cli
     _1password
+    ffsend
+    graphviz
 
     # https://www.mpscholten.de/nixos/2016/04/11/setting-up-vim-on-nixos.html
     (
