@@ -228,6 +228,7 @@
     automake
     gnumake
     pkg-config
+    clang-tools
     # Formatter
     indent
     # Linter
@@ -273,6 +274,9 @@
     _1password
     ffsend
     graphviz
+    dpkg
+    hexchat
+    pidgin
 
     # https://www.mpscholten.de/nixos/2016/04/11/setting-up-vim-on-nixos.html
     (
