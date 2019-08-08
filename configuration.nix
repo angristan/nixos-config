@@ -107,6 +107,10 @@
     };
   };
 
+  # Enable entropy daemon which refills /dev/random when low
+  services.haveged.enable = true;
+
+
   # Add the NixOS Manual on virtual console 8
   services.nixosManual.showManual = true;
 
