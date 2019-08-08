@@ -368,13 +368,6 @@
    };
   };
 
-  # TODO: Restic backups
-  # services.restic.backups
-
-  # TODO OpenVPN
-  # services.openvpn.servers
-
-
   # Enable Pulseaudio
   hardware.pulseaudio = {
     enable = true;
