@@ -124,6 +124,7 @@
     allowedTCPPorts = [];
     allowedUDPPorts = [];
     logRefusedConnections = true;
+    checkReversePath = false; # for libvirtd
   };
 
   #networking.search = ["oxalide.local"];
@@ -341,6 +342,8 @@
   virtualisation.lxd.enable = true;
   # Install VB
   virtualisation.virtualbox.host.enable = true;
+  # Libvirtd (Qemu)
+  virtualisation.libvirtd.enable = true;
 
   # Periodically update the database of files used by the locate command
   services.locate.enable = true;
@@ -442,6 +445,7 @@
     extraGroups = [
       "wheel" # Enable ‘sudo’ for the user.
       "docker" "lxd" # Allow access to the sockets without root
+      "libvirtd"
     ];
     # It is possible to install packages on a per-user basis.
     # I don't know why I would do that so they are installed globally for now.
