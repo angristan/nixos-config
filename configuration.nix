@@ -632,6 +632,9 @@
       sysrs = "sudo nixos-rebuild switch";
       # Same as nix-channel --update nixos; nixos-rebuild switch
       sysup = "sudo nixos-rebuild switch --upgrade";
+      sysrsgit = "sysrs -I nixpkgs=/home/stanislas/nixpkgs";
+      sysupgit = "sysup -I nixpkgs=/home/stanislas/nixpkgs";
+      nixpkgsupgit = "cd ~/nixpkgs/ && git fetch upstream && git checkout master && git rebase upstream/master && git push && cd -";
       sysclean = "sudo nix-collect-garbage -d; and sudo nix-store --optimise";
       lgit = "git add -A; and git commit; and git push";
       lgitf = "git add -A; and git commit; and git pull; and git push";
