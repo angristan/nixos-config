@@ -211,12 +211,6 @@
   	php73Packages.composer
     python27Full
     python37Full
-    jetbrains.webstorm
-    jetbrains.clion
-    jetbrains.idea-ultimate
-    jetbrains.phpstorm
-    jetbrains.pycharm-professional
-    jetbrains.ruby-mine
     sublime3
     shellcheck
     git
