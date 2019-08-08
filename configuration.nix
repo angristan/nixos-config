@@ -201,6 +201,9 @@
     #hyper
     # Nix tools
     nix-du #https://github.com/symphorien/nix-du
+    common-updater-scripts
+    nixops
+    nix-review
     # Dev
     cmake
     bundix
