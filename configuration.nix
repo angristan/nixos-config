@@ -794,13 +794,13 @@
     '';
   };
 
-  services.restic.backups.bastion_pa3 = {
-    passwordFile = "/etc/nixos/secrets/restic-password";
-    paths = [ "/etc" ];
-    user = "stanislas";
-    repository = "sftp:pa3:restic";
-    timerConfig = {
-      OnCalendar = "12:30";
-    };
-  };
+  # services.restic.backups.bastion_pa3 = {
+  #   passwordFile = "/etc/nixos/secrets/restic-password";
+  #   paths = [ "/etc" ];
+  #   user = "stanislas";
+  #   repository = "sftp:pa3:restic";
+  #   timerConfig = {
+  #     OnCalendar = "12:30";
+  #   };
+  # };
 }
