@@ -216,6 +216,7 @@
   	php73Packages.composer
     python27Full
     python37Full
+    go_1_12
     sublime3
     shellcheck
     git
