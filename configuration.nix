@@ -341,7 +341,7 @@
     # Run docker system prune -f periodically
     autoPrune.enable = true;
     autoPrune.dates = "weekly";
-    # Don't start the service at boot, use systemd socker activation
+    # Don't start the service at boot, use systemd socket activation
     enableOnBoot = false;
   };
   # Install LXD
