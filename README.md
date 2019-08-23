@@ -42,7 +42,6 @@ cf. https://rycee.gitlab.io/home-manager/index.html#sec-install-nixos-module
 # nix-channel --update
 ```
 
-
 ## Usage
 
 ```
