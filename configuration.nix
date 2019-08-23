@@ -427,7 +427,7 @@
 
   # this is required for mounting android phones
   # over mtp://
-  services.gnome3.gvfs.enable = true;
+  services.gvfs.enable = true;
 
   # Disable mutable users.
   #users.mutableUsers = false;
