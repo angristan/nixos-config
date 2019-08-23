@@ -29,8 +29,8 @@
   # Display ownership notice before LUKS prompt
   boot.initrd.preLVMCommands = ''
     echo '--- OWNERSHIP NOTICE ---'
-    echo 'This device is property of Stanislas Lange'
-    echo 'If lost please contact stanislas.lange at pm.me'
+    echo 'This device is property of xx'
+    echo 'If lost please contact xx'
     echo '--- OWNERSHIP NOTICE ---'
   '';
 
@@ -127,7 +127,7 @@
     checkReversePath = false; # for libvirtd
   };
 
-  #networking.search = ["oxalide.local"];
+  #networking.search = ["xx.local"];
   #networking.nameservers = ["192.168.3.2" "89.185.39.94" "176.103.130.130" "1.0.0.1"];
 
   # The list of nameservers. It can be left empty if it is auto-detected through DHCP.
@@ -459,8 +459,8 @@
     programs.git = {
       enable = true;
 
-      userName = "Stanislas Lange";
-      userEmail = "stanislas.lange@fr.clara.net";
+      userName = "xx";
+      userEmail = "xx";
 
       aliases = {
         plog = "log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all";
@@ -505,25 +505,6 @@
       enable = true;
 
       matchBlocks = {
-        # Personal
-        kokoro = {
-          hostname = "kokoro.angristan.xyz";
-          user = "root";
-          port = 3200;
-          identityFile = "~/.ssh/xps-sla";
-        };
-        mina = {
-          hostname = "mina.angristan.xyz";
-          user = "root";
-          port = 3200;
-          identityFile = "~/.ssh/xps-sla";
-        };
-        mitsuha = {
-          hostname = "mitsuha.angristan.xyz";
-          user = "root";
-          port = 3200;
-          identityFile = "~/.ssh/xps-sla";
-        };
         "github.com" = {
           user = "git";
           identityFile = "~/.ssh/xps-sla";
@@ -531,28 +512,6 @@
         };
         "gitlab.com" = {
           user = "git";
-          identityFile = "~/.ssh/xps-sla-oxa";
-          identitiesOnly = true;
-        };
-
-        # Work
-        pa1 = {
-          hostname = "bastion-pa1-01";
-          user = "slange";
-          identityFile = "~/.ssh/xps-sla-oxa";
-        };
-        pa2 = {
-          hostname = "bastion-pa2-01";
-          user = "slange";
-          identityFile = "~/.ssh/xps-sla-oxa";
-        };
-        pa3 = {
-          hostname = "bastion-pa3-01";
-          user = "slange";
-          identityFile = "~/.ssh/xps-sla-oxa";
-        };
-        "oxalide.factory.git-01.adm" = {
-          user = "slange";
           identityFile = "~/.ssh/xps-sla-oxa";
           identitiesOnly = true;
         };
@@ -650,8 +609,6 @@
     shellInit = ''
       # Remove welcome message
       set fish_greeting
-
-      export VAULT_ADDR=https://vault.oxalide.net
     '';
 
     promptInit = ''
@@ -793,11 +750,11 @@
     '';
   };
 
-  # services.restic.backups.bastion_pa3 = {
+  # services.restic.backups.xx = {
   #   passwordFile = "/etc/nixos/secrets/restic-password";
   #   paths = [ "/etc" ];
   #   user = "stanislas";
-  #   repository = "sftp:pa3:restic";
+  #   repository = "sftp:xx:restic";
   #   timerConfig = {
   #     OnCalendar = "12:30";
   #   };
