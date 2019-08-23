@@ -488,9 +488,6 @@
           new = "green bold";
           whitespace = "red reverse";
         };
-        "push" = {
-          default = "current";
-        };
       };
       # END diff-so-fancy config
 
