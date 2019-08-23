@@ -282,6 +282,8 @@
     pidgin
     gitlab-runner
     exfat
+    jnettop
+    zip
 
     # https://www.mpscholten.de/nixos/2016/04/11/setting-up-vim-on-nixos.html
     (
